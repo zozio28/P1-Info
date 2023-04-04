@@ -21,13 +21,11 @@ void initTableau(int** tableau,int nb_lignes,int nb_colonnes){
 void afficherTableau(int** tableau, int nb_lignes, int nb_colonnes){
   for (int i=0; i<nb_colonnes; i++){
     for (int j=0; j<nb_lignes; j++){
-      printf("| %d | ", tableau[i][j]);
+      printf("| %d ", tableau[i][j]);
     }
-    printf(" \n");
+    printf("| \n");
   }
 }
-
-void hfi
 
 int cptLigne(int** carre,int ligne,int nb_colonnes){
   int nb_l;
@@ -71,12 +69,12 @@ int estMagique(int** carre,int nb_lignes,int nb_colonnes){
   int i;
   int n=3;
 
-  if (ref = res){
-    i = 0;
+  if (ref == res){
+    return i = 0;
   }else{
-    i=n+1;
+    return i=n+1;
   }
-  while ((i<n) && (cptLigne(carre,nb_lignes,nb_colonnes)=ref)){
+  while ((i<n) && (cptLigne(carre,nb_lignes,nb_colonnes)==ref)){
     i=i+1;
   }
 
