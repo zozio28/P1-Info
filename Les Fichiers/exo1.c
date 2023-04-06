@@ -28,7 +28,7 @@ int main(){
         while(fgets(ligne,N,fichier)!=NULL){
             fgets(ligne,0,fichier);
             laLigne = strtok(ligne,";");
-            fprintf(mesFringues, "\n \");
+            fprintf(mesFringues," \n ");
         }
         while (laLigne!=NULL){
             fgets(ligne,0,fichier);
