@@ -8,17 +8,9 @@ int main(){
     FILE* fichier = NULL;
     char ligne[N];
     char* laLigne;
-    char* id;
-    char* nom;
-    char* taille;
-    char* prix;
     int colLues = 0;
     int liLues = 0;
 
-    id = malloc(N*sizeof(char));
-    nom = malloc(N*sizeof(char));
-    taille = malloc(N*sizeof(char));
-    prix = malloc(N*sizeof(char));
     laLigne = malloc(N*sizeof(char));
 
     mesFringues = fopen("mesFringues.json", "w");
@@ -28,7 +20,7 @@ int main(){
         while(fgets(ligne,N,fichier)!=NULL){
             fgets(ligne,0,fichier);
             laLigne = strtok(ligne,";");
-            fprintf(mesFringues," \n ");
+            fprintf(mesFringues," \n ]");
         }
         while (laLigne!=NULL){
             fgets(ligne,0,fichier);
@@ -64,6 +56,9 @@ int main(){
     }else{
         printf("Erreur ouverture fichier \n");
     }
+
+    free(laLigne);
+    laLigne = NULL;
 
     fclose(fichier);
     fclose(mesFringues);
