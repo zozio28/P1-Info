@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define TAILLE 100
 
-typedef struct aliments{
+struct aliments{
+    // char[TAILLE] Tranche d'emmental;
+}aliments;
 
-};
+typedef struct aliments Aliments;
 
-void vérifierStock(){
+void vérifierStock(Aliments Amaya){
 
 }
 
