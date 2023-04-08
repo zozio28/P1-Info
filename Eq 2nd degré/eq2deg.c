@@ -10,7 +10,7 @@ double calculerDelta (double a, double b, double c){
 //Fonction qui calcule les solutions
 void solutions(int* nbsolution, double* s1, double* s2, double a, double b, double c){
 
-  if (calculerDelta(a,b,c)>=0){
+  if (calculerDelta(a,b,c)>0){
     *nbsolution = 2;
     *s1=((-b+sqrt(calculerDelta(a,b,c)))/(2*a));
     *s2=((-b-sqrt(calculerDelta(a,b,c)))/(2*a));
