@@ -54,7 +54,7 @@ int main(){
   if (*nbs == 2){
     printf("Il y a 2 solutions : %lf et %lf \n", *s1, *s2);
   }else if (*nbs == 1){
-    printf("Il y a 1 solutions : %lf \n", *s1);
+    printf("Il y a 1 solution : %lf \n", *s1);
   }else{
     printf("Il n'y a pas de solution \n");
   }
