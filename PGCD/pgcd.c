@@ -1,8 +1,9 @@
-#include <stdio.h>
+#include <stdio.h> //printf, scanf
 
-int main(int argc, char** argv){
-
+//Fonction qui calcule le PGCD de 2 nombres
 int pgcd(int a,int b){
+
+  //Variable
   int m;
 
   while ((a%b)!=0){
@@ -10,20 +11,25 @@ int pgcd(int a,int b){
     b=a%b;
     a=m;
   }
-
+  
   return b;
 }
+
+//Fonction principale
+int main(int argc, char** argv){
+
+  //Variables
   int a;
   int b;
-  int p;
 
+  //Saisie des 2 nombres par l'utilisateur
   printf("Entrez un premier nombre : ");
   scanf("%d", &a);
   printf("Entrez un second nombre : ");
   scanf("%d", &b);
 
-  p=pgcd(a,b);
-  printf("Le pgcd de %d et %d est %d \n", a, b, p);
+  //Affichage du PGCD des 2 nombres
+  printf("Le pgcd de %d et %d est %d \n", a, b, pgcd(a,b));
 
   return 0;
 }
