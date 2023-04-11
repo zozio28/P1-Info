@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include <stdio.h> //printf, scanf 
 #include <stdlib.h>
 
+//Fonction récursive non terminale qui calcule la factorielle d'un nombre
 int factorial(int n){
   if (n==0){
     return 1;
@@ -9,6 +10,7 @@ int factorial(int n){
   }
 }
 
+//Fonction récursive terminale qui calcule la factorielle d'un nombre
 int tfactorial(int n, int acc){
   if (n==0){
     return acc;
@@ -17,8 +19,10 @@ int tfactorial(int n, int acc){
   }
 }
 
+//Fonction principale
 int main(){
 
+  //appel et affichage des fonctions récursives terminales et non terminales
   printf("%d \n", factorial(10));
   printf("%d \n", tfactorial(10,1));
 
