@@ -5,3 +5,4 @@ Exos d'info donnés en P1
 --> Carré Magique : fini !
 --> Factorielle : fini !
 --> PGCD : fini !
+--> Crypto : fini !
