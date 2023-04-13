@@ -9,6 +9,8 @@ Exos d'info donnés en P1
 --> Nombre entier : fini !
 --> Palindrome : fini !
 --> PGCD : fini !
+--> Restaurant : fini !
+--> Sapin de Noël : fini !
 --> Somme des chiffres : fini !
 --> Supprimer un caractère : fini !
 --> Training : fini !

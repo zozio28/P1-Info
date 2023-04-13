@@ -59,3 +59,82 @@ void afficherJoueur(joueur j){
   printf("Age : %d", j.age);
   printf("Nombre Buts : %d", j.nbButs);
 }
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+void creationEquipe(equipe* e){
+  e = malloc(sizeof(equipe));
+  e->nom = malloc(100*sizeof(char));
+  e->pays = malloc(100*sizeof(char));
+  e->championnat = malloc(100*sizeof(char));
+
+  printf("Nom : ");
+  scanf("%s",e->nom);
+  printf("Pays : ");
+  scanf("%s",e->pays);
+  printf("Championnat : ");
+  scanf("%s",e->championnat);
+  printf("Callsement : ");
+  scanf("%d",e->classement);
+  e->nbjoueurs = 0;
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+void afficherEquipe(equipe e){
+  printf("Nom : %s",e.nom);
+  printf("Pays : %s",e.pays);
+  printf("Championnat : %s",e.championnat);
+  printf("Classement : %d",e.classement);
+  printf("Nombre de joueurs : %d",e.nbjoueurs);
+
+  for(int i = 0; i<e.nbjoueurs; i++){
+    afficherJoueur(e.mesJoueurs[i]);
+  }
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+joueur meilleurButeur(equipe e){
+  joueur meilleur;
+  meilleur = e.mesJoueurs[0];
+
+  for(int i=0; i<e.nbjoueurs ; i++){
+    if(meilleur.nbButs<e.mesJoueurs[i].nbButs){
+      meilleur = e.mesJoueurs[i];
+    }
+  }
+  return meilleur;
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+int compareEquipe(equipe e1,equipe e2){
+  int res;
+  if(e1.classement<e2.classement){
+    res = 1;
+  }else if(e1.classement>e2.classement){
+    res = 2;
+  }else if(e1.classement == e2.classement){
+    res = 0;
+  }else{
+    res = -1;
+  }
+  return res;
+}
