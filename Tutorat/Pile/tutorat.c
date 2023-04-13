@@ -14,5 +14,8 @@ int main(){
   NodeElement* stack=NULL;
   add(&stack,5);
   affStack(stack);
+  pop(&stack);
+  add(&stack,3);
+  affStack(stack);
   return 0;
 }

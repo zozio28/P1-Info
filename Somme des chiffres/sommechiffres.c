@@ -14,10 +14,13 @@ int sommeTer(int n ,int acc){
   }
 }
 
+//Fonction principale
 int main(){
+
   //Variables
   int nombre;
 
+  //demande la saisie du nombre et affiche le résultat
   printf("Veuillez entrer un nombre n : \n");
   scanf("%d", &nombre);
   printf("La somme des chiffres du nombre choisi est : %d \n", sommeTer(nombre,0));

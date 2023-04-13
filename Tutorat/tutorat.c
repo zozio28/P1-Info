@@ -4,23 +4,29 @@
 typedef struct NodeElement{
   int value;
   struct NodeElement* next;
-};
+}NodeElement;
 
 //définition de mon type pile STACK
 typedef NodeElement* Stack;
 
 //affichage de la pile
-void affichage(Stack* stack){
-  stack = stack->first;
-  while (stack != NULL){
-      printf("%d \n", stack->value);
-      stack = stack->next;
+void affStack(NodeElement* node){
+  if (node==NULL){
+    return;
+  }else{
+    printf("%d \n", node->value);
+    affStack(node->next);
   }
 }
 
 //enlever des éléments
-void remove(Stack* stack){
-  NodeElement* removeNode = stack->first;
+void pop(Stack* stack){
+  if (*stack == NULL){
+    return;
+  }
+  NodeElement* popNode = *stack;
+  *stack = (*stack)->next;
+  free(popNode);
 }
 
 void add(Stack* stack, int value){

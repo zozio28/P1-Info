@@ -17,7 +17,12 @@ void add(Stack* stack, int value){
 
 // //enlever des éléments
 void pop(Stack* stack){
-
+  if (*stack == NULL){
+    return;
+  }
+  NodeElement* popNode = *stack;
+  *stack = (*stack)->next;
+  free(popNode);
 }
 
 //affichage de la pile

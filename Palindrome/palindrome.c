@@ -1,5 +1,5 @@
+#include <stdio.h> //printf,scanf
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 #define MAX 100
@@ -54,16 +54,15 @@ int main(){
   //Variables
   char mot[MAX];
   char phrase[MAX];
-  // int taille;
-  //
-  // printf("Entrez la phrase : \n");
-  // fgets(maPhrase,sizeof(char)*100,stdin);
-  //
-  // printf("Entrez la phrase : \n");
-  // fgets(phrase,sizeof(char)*100,stdin);
-  // taille=strlen(phrase)-1;
-  // printf("La taille de maPhrase est %ld \n",taille);
+  int taille;
+  
+  //Permet de connaître la taille d'une chaîne de caractère
+  printf("Entrez la phrase : \n");
+  fgets(phrase,sizeof(char)*100,stdin);
+  taille=strlen(phrase)-1;
+  printf("La taille de maPhrase est %d \n\n",taille);
 
+  //Permet de savoir si le mot est un palindrome
   printf("Entrez le mot : \n");
   scanf("%s", mot);
   if (estPalindromeMot(mot, 0, strlen(mot)-1)){
@@ -72,9 +71,9 @@ int main(){
     printf("Le mot %s n'est pas un palindrome \n", mot);
   }
 
-  printf("Entrez la phrase : \n");
+  //Permet de savoir si la phrase est un palindrome
+  printf("\nEntrez la phrase (sans espaces) : \n");
   fscanf(stdin, "%s", phrase);
-
   if (estPalindromePhrase(phrase, 0, strlen(phrase)-1)){
     printf("La phrase %s est un palindrome \n", phrase);
   }else{
