@@ -4,6 +4,7 @@
 typedef struct Joueur joueur;
 typedef struct Equipe equipe;
 
+//Structure Joueur
 struct Joueur{
   char* nom;
   char* prenom;
@@ -13,6 +14,7 @@ struct Joueur{
   int nbButs;
 };
 
+//Structure Equipe
 struct Equipe{
   char* nom;
   char* pays;

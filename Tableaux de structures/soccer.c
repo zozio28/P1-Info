@@ -4,11 +4,11 @@
 
 
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Procédure qui permet de créer un joueur */
+/* Entrée(s) : La variable j de la structure joueur */
+/* Sortie(s) :  Demande à l'utilisateur de saisir chaque donnée  */
 void creationJoueur(joueur** j){
   *j = malloc(sizeof(joueur));
   (*j)->nom = malloc(100*sizeof(char));
@@ -30,11 +30,11 @@ void creationJoueur(joueur** j){
   scanf("%d", &(*j)->nbButs);
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Procédure qui permet d'afficher un joueur */
+/* Entrée(s) : Le joueur en question */
+/* Sortie(s) :  Affiche chaque variable de la structure et leurs valeurs entrée par l'utilisateur  */
 
 void afficherJoueur(joueur j){
   printf("\n----AFFICHAGE DU JOUEUR---- \n");
@@ -46,11 +46,11 @@ void afficherJoueur(joueur j){
   printf("Nombre Buts : %d \n", j.nbButs);
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Procédure qui permet de créer une équipe */
+/* Entrée(s) : La variable e de la structure equipe */
+/* Sortie(s) :  Demande à l'utilisateur de saisir chaque donnée  */
 
 void creationEquipe(equipe** e){
   *e = malloc(sizeof(equipe));
@@ -70,11 +70,11 @@ void creationEquipe(equipe** e){
   (*e)->nbjoueurs = 0;
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :19/04/2023 */
+/* Résumé : Procédure qui permet d'afficher une équipe */
+/* Entrée(s) : L'équipe en question */
+/* Sortie(s) :  Affiche chaque variable de la structure et leurs valeurs entrée par l'utilisateur + affiche les joueurs de l'équipe  */
 
 void afficherEquipe(equipe e){
   printf("\n----AFFICHAGE DE L'EQUIPE---- \n");
@@ -89,11 +89,11 @@ void afficherEquipe(equipe e){
   }
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Fonction qui permet de déterminer le meilleur Buteur, toute équipe confondue */
+/* Entrée(s) : Les équipes en question */
+/* Sortie(s) :  Le meilleur buteur parmi les joueurs  */
 
 joueur* meilleurButeur(equipe e){
   joueur* meilleur;
@@ -107,11 +107,11 @@ joueur* meilleurButeur(equipe e){
   return meilleur;
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Fonction qui compare le classement de chaque équipe */
+/* Entrée(s) : Les équipes en question */
+/* Sortie(s) :  En fonction du résultat : l'équipe avec le meilleur classement ou égalité  */
 
 int compareEquipe(equipe e1,equipe e2){
   int res;
@@ -127,11 +127,11 @@ int compareEquipe(equipe e1,equipe e2){
   return res;
 }
 
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
+/* Auteur : Zoé */
+/* Date :   19/04/2023 */
+/* Résumé : Procédure qui permet d'ajouter un joueur à une équipe */
+/* Entrée(s) : l'équipe en question et le joueur en question */
+/* Sortie(s) :  Le joueur dans l'équipe  */
 
 void ajouterJoueur(equipe* e, joueur* j){
   if (e->nbjoueurs < 3){
