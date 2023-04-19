@@ -3,57 +3,53 @@
 #include <string.h>
 #define N 1000
 
-int main(){
+int main() {
     FILE* mesFringues = NULL;
     FILE* fichier = NULL;
     char ligne[N];
     char* laLigne;
-    int colLues = 0;
-    int liLues = 0;
+    int colLues;
+    int liLues;
 
-    laLigne = malloc(N*sizeof(char));
+    laLigne = malloc(N * sizeof(char));
 
     mesFringues = fopen("mesFringues.json", "w");
     fichier = fopen("mesFringues.csv", "r");
-    if (fichier != NULL){
+    if (fichier != NULL) {
         fprintf(mesFringues, "[");
-        while(fgets(ligne,N,fichier)!=NULL){
-            fgets(ligne,0,fichier);
-            laLigne = strtok(ligne,";");
-            fprintf(mesFringues," \n ]");
-        }
-        while (laLigne!=NULL){
-            fgets(ligne,0,fichier);
-            switch(colLues){
-                case 0:
-                    fprintf(mesFringues, "  \"id\": \"%s\",\n",laLigne);
-                    break;
-                case 1:
-                    fprintf(mesFringues, "  \"nom\": \"%s\",\n",laLigne);
-                    break;
-                case 2:
-                    fprintf(mesFringues, "  \"taille\": \"%s\",\n",laLigne);
-                    break;
-                case 3:
-                    fprintf(mesFringues, "  \"prix\": \"%s\",\n",laLigne);
-                    break;
-                default:
-                    break;
+        liLues = 0;
+        while (fgets(ligne, N, fichier) != NULL) {
+            colLues = 0;
+            fprintf(mesFringues, "\n  {");
+            laLigne = strtok(ligne, ";");
+            while (laLigne != NULL) {
+                switch (colLues) {
+                    case 0:
+                        fprintf(mesFringues, "\n    \"id\": \"%s\",", laLigne);
+                        break;
+                    case 1:
+                        fprintf(mesFringues, "\n    \"nom\": \"%s\",", laLigne);
+                        break;
+                    case 2:
+                        fprintf(mesFringues, "\n    \"taille\": \"%s\",", laLigne);
+                        break;
+                    case 3:
+                        fprintf(mesFringues, "\n    \"prix\": \"%s\",", laLigne);
+                        break;
+                    default:
+                        break;
+                }
+                laLigne = strtok(NULL, ";");
+                colLues++;
             }
-            laLigne = strtok(NULL, ";");
-            colLues++;
+            fprintf(mesFringues, "\n  }");
+            liLues++;
+            if (liLues > 1) {
+                fprintf(mesFringues, ",");
+            }
         }
-        switch(liLues){
-            case 4:
-                fprintf(mesFringues, "  }");
-                break;
-            default:
-                fprintf(mesFringues, "  }");
-                break;
-        }
-        liLues++;
-
-    }else{
+        fprintf(mesFringues, "\n]");
+    } else {
         printf("Erreur ouverture fichier \n");
     }
 
@@ -62,4 +58,6 @@ int main(){
 
     fclose(fichier);
     fclose(mesFringues);
+
+    return 0;
 }
