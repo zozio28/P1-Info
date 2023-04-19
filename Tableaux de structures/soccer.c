@@ -2,47 +2,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Joueur{
-  char* nom;
-  char* prenom;
-  char* poste;
-  int num;
-  int age;
-  int nbButs;
-}Joueur;
 
-struct Equipe{
-  char* nom;
-  char* pays;
-  char* championnat;
-  int classement;
-  int nbjoueurs;
-  joueur mesJoueurs[3];
-}Equipe;
 
 /* Auteur : ... */
 /* Date :   ... */
 /* Résumé : ... */
 /* Entrée(s) : ... */
 /* Sortie(s) :  ...  */
-void creationJoueur(joueur* j){
-  j = malloc(sizeof(joueur));
-  j->nom = malloc(100*sizeof(char));
-  j->prenom = malloc(100*sizeof(char));
-  j->poste = malloc(100*sizeof(char));
+void creationJoueur(joueur** j){
+  *j = malloc(sizeof(joueur));
+  (*j)->nom = malloc(100*sizeof(char));
+  (*j)->prenom = malloc(100*sizeof(char));
+  (*j)->poste = malloc(100*sizeof(char));
 
+  printf("\n----CREATION DU JOUEUR---- \n");
   printf("Nom : ");
-  scanf("%s", j->nom);
+  scanf("%s", (*j)->nom);
   printf("Prénom : ");
-  scanf("%s", j->prenom);
+  scanf("%s", (*j)->prenom);
   printf("Poste : ");
-  scanf("%s", j->poste);
+  scanf("%s", (*j)->poste);
   printf("Numéro : ");
-  scanf("%ls", &j->num);
+  scanf("%d", &(*j)->num);
   printf("Age : ");
-  scanf("%ls", &j->age);
+  scanf("%d", &(*j)->age);
   printf("Nombre buts : ");
-  scanf("%ls", &j->nbButs);
+  scanf("%d", &(*j)->nbButs);
 }
 
 /* Auteur : ... */
@@ -52,12 +37,13 @@ void creationJoueur(joueur* j){
 /* Sortie(s) :  ...  */
 
 void afficherJoueur(joueur j){
-  printf("Nom : %s", j.nom);
-  printf("Prénom : %s", j.prenom);
-  printf("Poste : %s", j.poste);
-  printf("Numéro : %d", j.num);
-  printf("Age : %d", j.age);
-  printf("Nombre Buts : %d", j.nbButs);
+  printf("\n----AFFICHAGE DU JOUEUR---- \n");
+  printf("Nom : %s \n", j.nom);
+  printf("Prénom : %s \n", j.prenom);
+  printf("Poste : %s \n", j.poste);
+  printf("Numéro : %d \n", j.num);
+  printf("Age : %d \n", j.age);
+  printf("Nombre Buts : %d \n", j.nbButs);
 }
 
 /* Auteur : ... */
@@ -66,21 +52,22 @@ void afficherJoueur(joueur j){
 /* Entrée(s) : ... */
 /* Sortie(s) :  ...  */
 
-void creationEquipe(equipe* e){
-  e = malloc(sizeof(equipe));
-  e->nom = malloc(100*sizeof(char));
-  e->pays = malloc(100*sizeof(char));
-  e->championnat = malloc(100*sizeof(char));
+void creationEquipe(equipe** e){
+  *e = malloc(sizeof(equipe));
+  (*e)->nom = malloc(100*sizeof(char));
+  (*e)->pays = malloc(100*sizeof(char));
+  (*e)->championnat = malloc(100*sizeof(char));
 
+  printf("\n----CREATION DE L'EQUIPE---- \n");
   printf("Nom : ");
-  scanf("%s",e->nom);
+  scanf("%s",(*e)->nom);
   printf("Pays : ");
-  scanf("%s",e->pays);
+  scanf("%s",(*e)->pays);
   printf("Championnat : ");
-  scanf("%s",e->championnat);
-  printf("Callsement : ");
-  scanf("%d",e->classement);
-  e->nbjoueurs = 0;
+  scanf("%s",(*e)->championnat);
+  printf("Classement : ");
+  scanf("%d",&(*e)->classement);
+  (*e)->nbjoueurs = 0;
 }
 
 /* Auteur : ... */
@@ -90,11 +77,12 @@ void creationEquipe(equipe* e){
 /* Sortie(s) :  ...  */
 
 void afficherEquipe(equipe e){
-  printf("Nom : %s",e.nom);
-  printf("Pays : %s",e.pays);
-  printf("Championnat : %s",e.championnat);
-  printf("Classement : %d",e.classement);
-  printf("Nombre de joueurs : %d",e.nbjoueurs);
+  printf("\n----AFFICHAGE DE L'EQUIPE---- \n");
+  printf("Nom : %s \n",e.nom);
+  printf("Pays : %s \n",e.pays);
+  printf("Championnat : %s \n",e.championnat);
+  printf("Classement : %d \n",e.classement);
+  printf("Nombre de joueurs : %d \n",e.nbjoueurs);
 
   for(int i = 0; i<e.nbjoueurs; i++){
     afficherJoueur(e.mesJoueurs[i]);
@@ -107,13 +95,13 @@ void afficherEquipe(equipe e){
 /* Entrée(s) : ... */
 /* Sortie(s) :  ...  */
 
-joueur meilleurButeur(equipe e){
-  joueur meilleur;
-  meilleur = e.mesJoueurs[0];
+joueur* meilleurButeur(equipe e){
+  joueur* meilleur;
+  meilleur = &e.mesJoueurs[0];
 
   for(int i=0; i<e.nbjoueurs ; i++){
-    if(meilleur.nbButs<e.mesJoueurs[i].nbButs){
-      meilleur = e.mesJoueurs[i];
+    if(meilleur->nbButs<e.mesJoueurs[i].nbButs){
+      meilleur = &e.mesJoueurs[i];
     }
   }
   return meilleur;
@@ -137,4 +125,19 @@ int compareEquipe(equipe e1,equipe e2){
     res = -1;
   }
   return res;
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+void ajouterJoueur(equipe* e, joueur* j){
+  if (e->nbjoueurs < 3){
+    e->mesJoueurs[e->nbjoueurs] = *j;
+    e->nbjoueurs++;
+  } else {
+    printf("L'équipe a déjà le maximum de joueurs autorisés.\n");
+  }
 }

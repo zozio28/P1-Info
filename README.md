@@ -14,6 +14,7 @@ Exos d'info donnés en P1
 --> Sapin de Noël : fini !
 --> Somme des chiffres : fini !
 --> Supprimer un caractère : fini !
+--> Tableaux de structures : fini !
 --> Training : fini !
 --> Tutorat : fini !
 --> Vérification Date : fini !
