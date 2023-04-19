@@ -6,6 +6,7 @@ Exos d'info donnés en P1
 --> Crypto : fini !
 --> Eq 2nd degré : fini !
 --> Factorielle : fini !
+--> Les Fichiers : fini !
 --> Nombre entier : fini !
 --> Palindrome : fini !
 --> PGCD : fini !
