@@ -1,32 +1,30 @@
-#include <stdio.h>
+#include <stdio.h> //printf, scanf
 
-int ecrireetoile(int n)
-{
-    char e [50];
-
-    for (int i = 0; i < n; i++)
-    {
-        
-    }
-    
-    {
-        printf("*");
-         ecrireetoile(n+1)
-    }
-    
-    if (n==1)
-    {
-        return e;
-    }
-    else if
-    {
-        if (n==0)
-        {
-            return e;
+//Procédure récursive qui affiche un triangle d'étoile en fonction du nombre en entrée
+void ecrireetoile(int n){
+    if(n == 0){
+        return;
+    }else{
+        ecrireetoile(n-1);
+        for(int i=0 ; i<n ; i++){
+            printf("*");
         }
     }
-    else
-    {
-        return(e, ecrireetoile(n+1));
-    }
+    printf("\n");
+}
+
+//Fonction principale
+int main(){
+
+    //Variable
+    int n;
+
+    //demande à l'utilisateur de saisir le nombre d'étoile
+    printf("Veuillez saisir le nombre d'étoile : ");
+    scanf("%d",&n);
+
+    //on fait appel à la procédure qui nous affiche le triangle
+    ecrireetoile(n);
+
+    return 0;
 }
