@@ -17,7 +17,7 @@ void ajouterArtiste(Artiste a){
     FILE* fichier = NULL;
     fichier = fopen("mesArtistes.csv","a");
     if(fichier != NULL){
-        fprintf(fichier,a.nom,a.prenom,a.nbDisques,a.anneeN);
+        fprintf(fichier,"%s;%s;%d;%d",a.nom,a.prenom,a.nbDisques,a.anneeN);
         fprintf(fichier, "\n");
         fclose(fichier);
     }
