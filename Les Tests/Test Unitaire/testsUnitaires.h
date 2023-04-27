@@ -13,7 +13,7 @@ int F1(int nb);
 /* Résumé : ????? */
 /* Entrée(s) : ?????  */
 /* Sortie(s) : ?????  */
-int F2(int nb, int acc);
+int F2(int nb, int acc, int acc2);
 
 void testF1_1();
 void testF1_25();
