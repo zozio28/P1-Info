@@ -1,5 +1,5 @@
 #ifndef __ecole_H_
-#define __zcole_H_
+#define __ecole_H_
 
 struct etudiant{
     char* nom;

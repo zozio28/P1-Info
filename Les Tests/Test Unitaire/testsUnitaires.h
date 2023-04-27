@@ -1,0 +1,28 @@
+#ifndef __testUnitaires_H_
+#define __testUnitaires_H_
+
+/* Auteur : ????? */
+/* Date :  ????? */
+/* Résumé : ????? */
+/* Entrée(s) : ?????  */
+/* Sortie(s) : ?????  */
+int F1(int nb);
+
+/* Auteur :  ????? */
+/* Date :  ????? */
+/* Résumé : ????? */
+/* Entrée(s) : ?????  */
+/* Sortie(s) : ?????  */
+int F2(int nb, int acc);
+
+void testF1_1();
+void testF1_25();
+void testF1_0();
+void testF1_10();
+void testF2_1();
+void testF2_0();
+void testF2_25();
+void testF2_10();
+
+
+#endif
