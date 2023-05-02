@@ -44,14 +44,18 @@ void afficherEtudiant(Etudiant e){
     printf("Ses notes : %ls \n", e.mesNotes);
 }
 
-// /* Auteur : ... */
-// /* Date :   ... */
-// /* Résumé : ... */
-// /* Entrée(s) : ... */
-// /* Sortie(s) :  ...  */
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
 
-// void afficherTableauEtudiant(tabEtudiants tabEtudiants){
-// }
+void afficherTableauEtudiant(tabEtudiants tabEtudiants) {
+  for (int i = 0; i < 5; i++) {
+    printf("| %s", lireCSV(tabEtudiants));
+  }
+  printf("|");
+}
 
 /* Auteur : ... */
 /* Date :   ... */
