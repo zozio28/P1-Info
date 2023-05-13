@@ -16,11 +16,12 @@ tabEtudiants* lireCSV(char* fichierNotes){
     char ligne[N];
     char* element;
 
-    fichier = fopen("notes.csv","r");
+    fichier = fopen(notes.csv,"r");
 
     if(fichier != NULL){
         while(fgets(ligne, N, fichier) != NULL){
             element = strtok(ligne, ";");
+            strcpy()
             while (element != NULL){
                 for(int i=0 ; i<5 ; i++){
                     fichierNotes[i] = *element;
