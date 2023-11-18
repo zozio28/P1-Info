@@ -8,21 +8,22 @@ struct etudiant{
     int mesNotes[5];
 };
 
-struct tabetudiants{
-    int* tabE;
+typedef struct etudiant etudiant;
+
+struct tabEtudiants{
+    etudiant* tabE;
     int taille;
 };
 
-typedef struct etudiant Etudiant;
-typedef struct tabetudiant tabEtudiants;
+typedef struct tabEtudiants tabEtudiants;
 
 tabEtudiants* lireCSV(char* fichierNotes);
-void afficherEtudiant(Etudiant e);
+void afficherEtudiant(etudiant e);
 void afficherTableauEtudiant(tabEtudiants tabEtudiants);
-double calculerMoyenneParEtudiant(Etudiant e);
-Etudiant meilleurEtudiant(tabEtudiants tabEtudiants);
-void saisirEtudiant(Etudiant* a);
-void ajouterEtudiant(tabEtudiants* tabEtudiants,Etudiant* a);
+double calculerMoyenneParEtudiant(etudiant e);
+etudiant meilleurEtudiant(tabEtudiants tabEtudiants);
+void saisirEtudiant(etudiant* a);
+void ajouterEtudiant(tabEtudiants* tabEtudiants,etudiant* a);
 void ecrireCSV(tabEtudiants* tabEtudiants,char* fichierNotes);
 void supprimerEtudiant(tabEtudiants* tabEtudiants, int num);
 

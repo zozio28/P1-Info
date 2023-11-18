@@ -12,23 +12,21 @@
 /* Sortie(s) :  ...  */
 
 tabEtudiants* lireCSV(char* fichierNotes){
-    FILE* fichier = NULL;
-    char ligne[N];
-    char* element;
-
-    fichier = fopen(notes.csv,"r");
-
-    if(fichier != NULL){
-        while(fgets(ligne, N, fichier) != NULL){
-            element = strtok(ligne, ";");
-            strcpy()
-            while (element != NULL){
-                for(int i=0 ; i<5 ; i++){
-                    fichierNotes[i] = *element;
-                }
-            }
-        }
+  FILE* fichier = NULL; 
+  fichier = fopen("notes.csv", "r");
+  char ligne[N];
+  tabEtudiants tab;
+  if (fichier != NULL){
+    for(int i=0 ; i < 5 ; i++){
+      while(fgets(ligne,N,fichier)!=NULL){
+        tab.tabE[i] = ligne;
+      }
     }
+  }else{
+    printf("Le fichier notes.csv n'existe pas.");
+  }
+  return &tab;
+  fclose(fichier);
 }
 
 /* Auteur : ... */
@@ -37,39 +35,42 @@ tabEtudiants* lireCSV(char* fichierNotes){
 /* Entrée(s) : ... */
 /* Sortie(s) :  ...  */
 
-void afficherEtudiant(Etudiant e){
+void afficherEtudiant(etudiant e){
     printf("------------ETUDIANT------------");
     printf("Nom : %s \n", e.nom);
     printf("Prénom : %s \n", e.prenom);
     printf("Numéro étudiant : %d \n", e.num);
-    printf("Ses notes : %ls \n", e.mesNotes);
-}
-
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
-
-void afficherTableauEtudiant(tabEtudiants tabEtudiants) {
-  for (int i = 0; i < 5; i++) {
-    printf("| %s", lireCSV(tabEtudiants));
-  }
-  printf("|");
-}
-
-/* Auteur : ... */
-/* Date :   ... */
-/* Résumé : ... */
-/* Entrée(s) : ... */
-/* Sortie(s) :  ...  */
-
-double calculerMoyenneParEtudiant(Etudiant e){
-    double moy = 0;
+    printf("Ses notes : \n");
     for(int i = 0 ; i < 5 ; i++){
-        moy+=e.mesNotes[i];
+      printf("- note n°%d : %d", i, e.mesNotes[i]);
     }
-    return moy/5;
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+void afficherTableauEtudiant(tabEtudiants tab) {
+  for(int i=0 ; i<tab.taille ; i++){
+    printf("~ ETUDIANT N°%d ~ \n", i);
+    afficherEtudiant(tab.tabE[i]);
+  }
+}
+
+/* Auteur : ... */
+/* Date :   ... */
+/* Résumé : ... */
+/* Entrée(s) : ... */
+/* Sortie(s) :  ...  */
+
+double calculerMoyenneParEtudiant(etudiant e){
+  double moyenne = 0;
+  for(int i = 0 ; i < 5 ; i++){
+    moyenne += e.mesNotes[i];
+  }
+  return moyenne/5;
 }
 
 // /* Auteur : ... */
@@ -88,8 +89,8 @@ double calculerMoyenneParEtudiant(Etudiant e){
 /* Entrée(s) : ... */
 /* Sortie(s) :  ...  */
 
-void saisirEtudiant(Etudiant* a){
-    a = malloc(sizeof(Etudiant));
+void saisirEtudiant(etudiant* a){
+    a = malloc(sizeof(etudiant));
     a->nom = malloc(N*sizeof(char));
     a->prenom = malloc(N*sizeof(char));
 
@@ -100,34 +101,22 @@ void saisirEtudiant(Etudiant* a){
     scanf("%s", a->prenom);
     printf("Numéro d'étudiant : ");
     scanf("%d", &a->num);
+    printf("Notes de l'étudiant : ");
+    for(int i = 0 ; i < 5 ; i++){
+      printf("- note n°%d : ", i);
+      scanf("%d", &(a->mesNotes[i]));
+    }
 }
 
-// /* Auteur : ... */
-// /* Date :   ... */
-// /* Résumé : ... */
-// /* Entrée(s) : ... */
-// /* Sortie(s) :  ...  */
+void ajouterEtudiant(tabEtudiants* tabEtudiants,etudiant* a){
+  tabEtudiants->tabE[tabEtudiants->taille] = *a;
+  tabEtudiants->taille++;
+}
 
-// void ajouterEtudiant(tabEtudiants* tabEtudiants,Etudiant* a){
+void ecrireCSV(tabEtudiants* tabEtudiants,char* fichierNotes){
 
-// }
+}
 
-// /* Auteur : ... */
-// /* Date :   ... */
-// /* Résumé : ... */
-// /* Entrée(s) : ... */
-// /* Sortie(s) :  ...  */
-
-// void ecrireCSV(tabEtudiants* tabEtudiants,char* fichierNotes){
-
-// }
-
-// /* Auteur : ... */
-// /* Date :   ... */
-// /* Résumé : ... */
-// /* Entrée(s) : ... */
-// /* Sortie(s) :  ...  */
-
-// void supprimerEtudiant(tabEtudiants* tabEtudiants, int num){
-
-// }
+void supprimerEtudiant(tabEtudiants* tabEtudiants, int num){
+  
+}
